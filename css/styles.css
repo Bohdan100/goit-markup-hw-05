@@ -16,6 +16,8 @@ body {
   font-style: normal;
   letter-spacing: 0.03em;
   color: var(--first-text-color);
+
+  padding-top: 85.75px;
 }
 
 .container {
@@ -40,6 +42,11 @@ p {
 /* -----------------HEADER-----CAPTION---------------- */
 
 .header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
   padding-top: 25px;
   padding-bottom: 25px;
 
@@ -506,6 +513,8 @@ p {
 .social-network-icon:focus {
   fill: var(--first-background-color);
   background-color: var(--acent-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-link:hover .social-network-icon,
@@ -513,6 +522,8 @@ p {
   color: var(--first-background-color);
   background-color: var(--acent-color);
   border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-link:focus {
@@ -725,6 +736,10 @@ p {
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects button:hover,
@@ -752,6 +767,8 @@ p {
   padding-right: 0;
 
   width: calc((100% - 60px) / 3);
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-photo-item:hover,
