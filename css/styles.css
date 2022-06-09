@@ -180,17 +180,6 @@ p {
 
   background-color: #2196f3;
   border-radius: 2px;
-
-  opacity: 0;
-  transform: scale(0);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.studio-link:hover::after,
-.portfolio-link:hover::after {
-  opacity: 1;
-  transform: scale(1);
 }
 
 /* -----------------PRIMARY--------------------- */
@@ -254,14 +243,19 @@ p {
   background-color: rgba(0, 0, 0, 0.2);
 
   z-index: 2;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
-.is-hidden .modal {
-  transform: translate(-50, -50%) scale(0.6);
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, 0) scale(0.5) rotate(-180deg);
 }
 
 .modal {
@@ -272,23 +266,21 @@ p {
 
   min-width: 528px;
   min-height: 581px;
-  padding: 8px;
 
   background-color: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms,
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .window-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
 
   width: 30px;
   height: 30px;
@@ -511,14 +503,16 @@ p {
   fill: currentColor;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 25ms,
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 25ms;
 }
 
 .social-network-icon:hover,
 .social-network-icon:focus {
   fill: var(--first-background-color);
   background-color: var(--acent-color);
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-link:hover .social-network-icon,
@@ -527,7 +521,8 @@ p {
   background-color: var(--acent-color);
   border-radius: 50%;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 25ms,
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 25ms;
 }
 
 .icon-link:focus {
@@ -578,21 +573,28 @@ p {
 
   border: 1px solid var(--third-text-color);
   border-radius: 4px;
-}
 
-.clients-icon {
-  fill: currentColor;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 
 .clients-link:hover,
 .clients-link:focus {
   border: 1px solid var(--acent-color);
   border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
+}
+
+.clients-icon {
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 
 .clients-link:hover .clients-icon,
 .clients-link:focus .clients-icon {
   fill: var(--acent-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 
 .clients-link:focus {
@@ -677,6 +679,8 @@ p {
   border-radius: 50%;
   color: var(--first-background-color);
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 
 .footer-network-icon {
@@ -692,6 +696,7 @@ p {
 .footer-icon-link:focus .footer-network-icon {
   background-color: var(--acent-color);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 50ms;
 }
 
 .footer-icon-link:focus {
@@ -753,6 +758,10 @@ p {
 
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
 
 /* СПИСОК ПРОЕКТОВ */
@@ -779,6 +788,8 @@ p {
 .projects-photo-item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
 
 .projects-photo-item:nth-child(3n) {
@@ -852,13 +863,17 @@ p {
   color: #ffffff;
 
   opacity: 0;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
 
 .projects-photo-item:hover .project-overlay {
   transform: translateY(-100%);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
 
 .projects-photo-item:hover .project-overlay-text {
   opacity: 1;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 100ms;
 }
